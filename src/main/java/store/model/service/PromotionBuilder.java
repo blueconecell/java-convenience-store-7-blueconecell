@@ -1,7 +1,6 @@
 package store.model.service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import store.constant.Resources;
 import store.model.domain.Promotion;

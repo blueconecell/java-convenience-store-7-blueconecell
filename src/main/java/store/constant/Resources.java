@@ -9,6 +9,7 @@ public enum Resources {
     Resources(String url) {
         this.url = url;
     }
+
     public String getUrl() {
         return url;
     }
