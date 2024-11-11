@@ -27,6 +27,15 @@ class PurchaseProcessingTest extends NsTest {
         });
     }
 
+    @Test
+    public void 프로모션_재고보다_더_많이_주문하면_프로모션_재고가_부족하여_일부는_프로모션_해택_없이_결제해야하는_경우() throws Exception {
+
+        assertSimpleTest(() -> {
+            run("[콜라-12]", "Y", "N", "N");
+            assertThat(output()).contains("콜라 3개는 프로모션 할인이 적용되지 않습니다. 그래도 구매하시겠습니까? (Y/N)");
+        });
+    }
+
 
     @Override
     public void runMain() {
