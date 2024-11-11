@@ -115,14 +115,15 @@ public class PurchaseProcessing {
 
     private boolean isApplicableTo(String cartProductName) {
         Promotion promotion = findPromotionByNameFromStock(cartProductName);
-        if (isPromotionExist(cartProductName) && isEnoughPromotionPeriod(promotion)) {
+        if (promotion != null && isPromotionExist(cartProductName) && isEnoughPromotionPeriod(promotion)) {
             return true;
         }
         return false;
     }
 
     private boolean isPromotionExist(String productName) {
-        return stock.findPromotionProductByName(productName) != null;
+        return (stock.findPromotionProductByName(productName) != null
+                && stock.findPromotionProductByName(productName).getQuantity() > 0);
     }
 
     private boolean isEnoughPromotionPeriod(Promotion promotion) {
