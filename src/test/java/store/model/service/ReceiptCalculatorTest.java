@@ -11,7 +11,7 @@ import store.Application;
 class ReceiptCalculatorTest extends NsTest {
 
     @Test
-    public void 정상_동작_테스트() throws Exception {
+    public void 프로모션과_멤버십_할인_정상_동작_테스트() throws Exception {
         assertSimpleTest(() -> {
             run("[콜라-12]", "Y", "Y", "N");
             assertThat(output().replaceAll("\\s", "")).contains("콜라1212", "콜라3", "총구매액1212,000", "행사할인-3,000",
