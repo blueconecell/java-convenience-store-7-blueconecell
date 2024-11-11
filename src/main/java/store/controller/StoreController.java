@@ -57,8 +57,8 @@ public class StoreController {
             boolean doMembership = inputView.requestMembership();
             setReceipt(doMembership);
             clearCartAndReceipt(cart);
-            String requestContinuePurchase = inputView.requestContinuePurchase();
-            if (requestContinuePurchase.equalsIgnoreCase("N")) {
+            boolean requestContinuePurchase = inputView.requestContinuePurchase();
+            if (!requestContinuePurchase) {
                 break;
             }
         }

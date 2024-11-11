@@ -31,9 +31,8 @@ public class InputView implements InputCallback {
         return getYesOrNoResponse(MEMBERSHIP);
     }
 
-    public String requestContinuePurchase() {
-        System.out.println(CONTINUE_PURCHASE);
-        return Console.readLine();
+    public boolean requestContinuePurchase() {
+        return getYesOrNoResponse(CONTINUE_PURCHASE);
     }
 
     private boolean getYesOrNoResponse(String message) {
