@@ -65,4 +65,16 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+
+    @Test
+    void 상품_주문시_결제된_수량만큼_해당_상품의_재고에서_차감하여_수량을_관리() {
+        assertSimpleTest(() -> {
+            run("[물-1]", "N", "Y","[물-1]", "N", "Y", "[물-1]", "N", "N");
+            assertThat(output()).contains(
+                    "- 물 500원 10개",
+                    "- 물 500원 9개",
+                    "- 물 500원 8개"
+            );
+        });
+    }
 }
